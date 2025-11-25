@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavana N | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #e6edf3;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(13, 17, 23, 0.95);
+      border-bottom: 1px solid #30363d;
+      padding: 15px 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e6edf3;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #1f6feb;
+      text-shadow: 0 0 10px #1f6feb;
+    }
+
+    section {
+      padding: 100px 10%;
+      min-height: 100vh;
+    }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(145deg, #161b22, #0d1117);
+      animation: fadeIn 2s ease-in;
+    }
+
+    #home img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 3px solid #1f6feb;
+      box-shadow: 0 0 15px #1f6feb;
+      margin-bottom: 20px;
+      transition: 0.5s;
+    }
+
+    #home img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #1f6feb;
+    }
+
+    #home h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #58a6ff;
+      animation: slideDown 1.5s ease;
+    }
+
+    #home p {
+      max-width: 600px;
+      font-size: 1rem;
+      color: #c9d1d9;
+      animation: fadeIn 2s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #58a6ff;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      animation: slideDown 1s ease;
+    }
+
+    .content {
+      background: #161b22;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 12px rgba(31, 111, 235, 0.2);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      color: #c9d1d9;
+    }
+
+    .project, .achievement {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-left: 4px solid #1f6feb;
+      background: #0d1117;
+      border-radius: 8px;
+    }
+
+    .project:hover, .achievement:hover {
+      transform: translateX(5px);
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(31,111,235,0.3);
+    }
+
+    footer {
+      background: #161b22;
+      color: #c9d1d9;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #30363d;
+    }
+
+    a {
+      color: #58a6ff;
+    }
+
+    a:hover {
+      color: #1f6feb;
+    }
+
+    /* Contact Form Styling */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #0d1117;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(31,111,235,0.3);
+    }
+
+    .contact-form label {
+      text-align: left;
+      color: #58a6ff;
+      font-weight: 500;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      background: #161b22;
+      color: #e6edf3;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #1f6feb;
+      box-shadow: 0 0 8px rgba(31,111,235,0.5);
+    }
+
+    .contact-form button {
+      background: #1f6feb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #58a6ff;
+      box-shadow: 0 0 12px #1f6feb;
+    }
+
+    .contact-info {
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      #home h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#internship">Internship</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <img src="profile.jpg" alt="Kavana N">
+    <h1>👋 Hi, I'm <span style="color:#1f6feb;">Kavana N</span></h1>
+    <p>A passionate MCA student specializing in Full Stack Web Development, eager to explore, learn, and innovate through technology.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="content">
+      <p>I am a motivated and enthusiastic fresher actively seeking job opportunities and internships to kickstart my career in the IT industry. With a strong passion for Python programming, full-stack web development, and exploring emerging and trending technologies, I am eager to apply my academic knowledge in real-world projects. As a fast learner with a growth-oriented mindset, I continuously strive to enhance my technical skills, adapt to new tools, and contribute effectively to innovative and collaborative development environments.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="content">
+      <ul>
+        <li>💻 Programming: Python, Java (Basics), SQL (Basics), PHP</li>
+        <li>🌐 Full Stack Web Development</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="content">
+      <ul>
+        <li><b>Master of Computer Applications</b> - Maharaja Institute of Technology Mysore (2026) – cgpa - 9.65</li>
+        <li><b>Bachelor of Computer Applications</b> - N.I.E First Grade College Mysore (2024) – cgpa - 9.0</li>
+        <li><b>PUC - PCMC</b> - Marimallapa PU college Mysore (2021) – 82%</li>
+        <li><b>School - 10th</b> - Avila Convent Mysore (2019) – 84%</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Internship Section -->
+  <section id="internship">
+    <h2>Internship</h2>
+    <div class="content">
+      <p><b>Company:</b> TechBitz Software Solutions (OPC) Pvt. Ltd.</p>
+      <p><b>Project:</b> “JEWELBITZ” Android Application Project (2024).</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="content">
+      <div class="project">
+        <b>Digitizing Newsletter Subscription Form</b>  
+        <p>Developed a digital subscription platform to streamline newsletter registration and improve accessibility.</p>
+      </div>
+      <div class="project">
+        <b>The Art of Cooking Food Website</b>  
+        <p>Created a responsive cooking and recipe website focusing on design, interactivity, and usability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="content">
+      <div class="achievement">📜 NPTEL course on Soft Skill Development (2025)</div>
+      <div class="achievement">💡 DSA Mastery with JAVA course (2025)</div>
+      <div class="achievement">📝 Paper Publication: “Digitizing Newsletter Subscription Form” in IRJMETS (2025)</div>
+      <div class="achievement">🎓 Workshop: “Campus to Corporate” by RankBook Learning (2025)</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="content contact-info">
+      <form action="https://formsubmit.co/kavanan1414@gmail.com" method="POST" class="contact-form">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="_replyto" placeholder="Enter your email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p>📧 <b>Email:</b> <a href="mailto:kavanan1414@gmail.com">kavanan1414@gmail.com</a></p>
+      <p>📱 <b>Mobile:</b> 7019009385</p>
+      <p>🔗 <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/kavana-n-607848293" target="_blank">View Profile</a></p>
+       <p>🔗 <b>github:</b> <a href="https://github.com/Kavana1415" target="_blank">View Profile</a></p>
+      <p>📍 <b>Address:</b> #151, Kasaba Hobli & Rammanahalli Post, Kamanakere Hundhi, Mysore</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Kavana N | Crafted with 💙 and Code</p>
+  </footer>
+
+  <script>
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', () => {
+      alert('✅ Your message has been sent successfully!');
+    });
+  </script>
+
+</body>
+</html>
